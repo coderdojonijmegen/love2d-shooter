@@ -126,7 +126,7 @@
 				<li>De zip-file bevat een <code>src/</code> folder. Kopieer de inhoud daarvan naar <code>c:\games\shooter</code></li>
 				<li>Om de voorbereidde code uit te voeren, druk je op de Windows knop en typ je 'cmd'. Je krijgt dan een
 				zwart venster. Typ dan <code>cd c:\games\shooter</code> om naar de folder te gaan waar je de code hebt neergezet.
-				Typ tenslotte <code>c:\love\love.exe main.lua</code> om het programma te starten. Als alles goed gaat, krijg je
+				Typ tenslotte <code>c:\love\love.exe .\</code> om het programma te starten. Als alles goed gaat, krijg je
 				een zwart venster.</li>
 			</ol>
 			</p>
@@ -144,24 +144,24 @@
 			</p><p>
 			Open <code>main.lua</code> in je tekst editor en type het volgende:
 			</p>
-	<pre>
-	-- variabele om het plaatje in op te slaan
+	<code>
+<span class="commentaar">	-- variabele om het plaatje in op te slaan</span>
 	spelersVliegtuig = nil
 	
 	function love.load(arg)
-	  -- laadt het plaatje in de variabele
-	  spelersVliegtuig = love.graphics.newImage('plaatjes/spelersVliegtuig.png')
+<span class="commentaar">	  -- laadt het plaatje in de variabele</span>
+<span class="nieuwe_code">	  spelersVliegtuig = love.graphics.newImage('plaatjes/spelersVliegtuig.png')</span>
 	end
-	</pre>
+	</code>
 			<p>
 			En vervolgens om op het scherm te tekenen:
 			</p>
-	<pre>
+	<code>
 	function love.draw(dt)
 	  -- teken het plaatje op het scherm
 	  love.graphics.draw(spelersVliegtuig, 100, 100)
 	end
-	</pre>
+	</code>
 			<p>
 			Start je programmaatje en zie het resultaat:
 			</p>
@@ -195,7 +195,7 @@
 			Om die informatie bij elkaar te houden, vervangen we variabele <code>spelersVliegtuig</code> door een nieuwe variabele waarin 
 			meerdere eigenschappen opgeslagen kunnen worden:
 			</p>
-	<pre>
+	<code>
 	-- variabele om eigenschappen van de speler in op te slaan
 	speler = { x = 200, y = 560, plaatje = nil }
 	
@@ -203,16 +203,16 @@
 	  -- laadt het plaatje in eigenschap plaatje van de variabele speler
 	  speler.plaatje = love.graphics.newImage('plaatjes/spelersVliegtuig.png')
 	end
-	</pre>
+	</code>
 			<p>
 			Het tekenen van het plaatje moet ook aangepast worden, zodat de nieuwe variabele met spelers eigenschappen gebruikt worden:
 			</p>
-	<pre>
+	<code>
 	function love.draw(dt)
 	  -- teken het plaatje op het scherm
 	  love.graphics.draw(speler.plaatje, speler.x, speler.y)
 	end
-	</pre>
+	</code>
 			<p>
 			Start opnieuw je programma en zie dat het vliegtuig nu onder in het venster staat. 
 			De wijzigingen die je hebt gemaakt zijn een voorbereiding om plaatje te kunnen laten bewegen.
@@ -242,7 +242,7 @@
 			pijl naar rechts voor een beweging naar rechts:
 			</p>
 			<div class="gecentreerd"><img src="images/image16.png" /></div>
-	<pre>
+	<code>
 	function love.update(dt)
 	  -- als pijltje naar links wordt ingedrukt
 	  if love.keyboard.isDown('left') then
@@ -257,7 +257,7 @@
 	    speler.x = speler.x + 1
 	  end
 	end
-	</pre>
+	</code>
 			<p>
 			Als je voor het eerst naar programmeercode kijkt ziet het bovenstaande er ingewikkeld uit, 
 			maar vergelijk het eens met het bewegen met pijltjes in Scratch. <code>love.update(dt)</code>
@@ -285,7 +285,7 @@
 			als het aan de randen van het venster komt. Aan de linker kant is dat makkelijk: beweeg niet 
 			verder als <code>speler.x</code> gelijk is aan 0. In code ziet dat er als volgt uit:
 			</p>
-	<pre>
+	<code>
 	-- als pijltje naar links ingedrukt
 	if love.keyboard.isDown('left') then
 	
@@ -296,12 +296,12 @@
 	    speler.x = speler.x - 1
 	
 	  end
-    </pre><p>
+    </code><p>
 			Aan de rechter zijde is dat lastiger. Daar hangt de maximale 'x' af van de breedte van het 
 			venster. De maximale waarde voor x is gelijk aan de breedte van het venster, of <code>xRechterRand()</code>:
 			</p>
 			<div class="gecentreerd"><img src="images/image14.png" /></div>
-	<pre>
+	<code>
 	-- als pijltje naar rechts ingedrukt
 	elseif love.keyboard.isDown('right') then
 	
@@ -313,7 +313,7 @@
 	
 	  end
 	end
-	</pre><p>
+	</code><p>
 			Pas de code die je eerder bij stap 3 (bewegen met pijltjes) hebt geschreven aan, zodat je stopt bij de 
 			rand. Controleer ook of het plaatje nu niet aan de rechterkant verdwijnt. Voor de duidelijkheid hebben 
 			we de Scratch code ook aangepast en bijgevoegd (zie plaatje rechts).
@@ -330,7 +330,7 @@
 			We beginnen met het tekenen van &eacute;&eacute;n vijand. Daarvoor voegen we &eacute;&eacute;n regel toe 
 			(bijna bovenaan je code) en we voegen een regel code toe aan de <code>love.load()</code> en <code>love.draw()</code> functies:
 			</p>
-			<pre>
+			<code>
 	-- variabelen om eigenschappen van de speler en vijand in op te slaan
 	speler = { x = 200, y = 560, plaatje = nil }
 	vijand = { x = 200, y = 0, plaatje = nil }
@@ -348,31 +348,31 @@
 	  love.graphics.draw(speler.plaatje, speler.x, speler.y)
 	  love.graphics.draw(vijand.plaatje, vijand.x, vijand.y)
 	end
-			</pre><p>
+			</code><p>
 			Probeer bovenstaande code uit.
 			</p><p>
 			Er is nu &eacute;&eacute;n vijand en deze staat recht tegenover de speler. Een stilstaande vijand is niet zo 
 			interessant, dus we laten 'm naar de speler bewegen. Dat kan vrij eenvoudig door het volgende aan de code 
 			toe te voegen aan je <code>love.update(dt)</code> functie:
-			</p><pre>
+			</p><code>
 	function love.update(dt)
 
 	  -- laat de vijand een stapje naar beneden doen 
 	  vijand.y = vijand.y + 1
-			</pre><p>
+			</code><p>
 			Bovenstaande code werkt hetzelfde als het verplaatsen van de speler. Nu bewegen we alleen wel 
 			verticaal (van boven naar beneden). Daardoor moeten we y in plaats van x veranderen. De positie 
 			van de vijand wordt steeds met 1 stapje naar beneden verzet. Zo beweegt de vijand naar de speler toe.
 			</p><p>
 			Om het plaatje van buiten het venster tevoorschijn te laten komen, moet de y positie aangepast worden 
 			naar -100. Pas de code bovenin je script aan door y = 0 te veranderen naar y = -100:
-			</p><pre>
+			</p><code>
 	vijand = { x = 200, y = -100, plaatje = nil }
-			</pre><p>
+			</code><p>
 			Onder aan het scherm vliegt de vijand het venster uit en is dan verdwenen. Het is natuurlijk leuker 
 			als er aan de bovenkant een nieuwe vijand verschijnt. Daarvoor moet je, net als bij het bewegend maken 
 			van de vijand, onderstaande code toevoegen aan <code>love.update(dt)</code>:
-			</p><pre>
+			</p><code>
 	-- als de vijand de onderrand heeft bereikt
 	if vijand.y > yOnderRand() then
 	
@@ -380,7 +380,7 @@
 	  vijand.y = -100
 	
 	end
-			</pre><p>
+			</code><p>
 			Om je te helpen met het begrijpen van de code: het verplaatsen van de vijand in 
 			Scratch zou er ongeveer zo uitzien:
 			</p>
@@ -389,7 +389,7 @@
 			Om het nog interessanter te maken, zou het leuk zijn als de vijand niet steeds op dezelfde plaats 
 			van boven naar beneden beweegt. De waarde van <code>vijand.x</code> (horizontale positie) zou iedere keer 
 			anders moeten zijn. Gebruik daarvoor de functie <code>xWillekeurig()</code>:
-			</p><pre>
+			</p><code>
 	-- als de vijand de onderrand heeft bereikt
 	if vijand.y > yOnderRand() then
 	
@@ -400,7 +400,7 @@
 	  vijand.x = xWillekeurig()
 	
 	end
-			</pre><p>
+			</code><p>
 			Wat je in Scratch zo zou doen:
 			</p>
 			<div class="gecentreerd"><img src="images/image13.png" /></div>
@@ -417,23 +417,23 @@
 			</p><p>
 			Allereerst hebben we een lijst met vijanden nodig, die voegen we bovenaan de code toe, bij 'speler'. 
 			Variabelen staan vaak bovenaan in code:
-			</p><pre>
+			</p><code>
 	-- variabelen om eigenschappen van de speler in op te slaan
 	speler = { x = 200, y = 560, plaatje = nil }
 	
 	-- lijst om vijanden in op te slaan
 	vijanden = {}
-			</pre><p>
+			</code><p>
 			Een andere variabele die we nodig hebben is het plaatje van de vijand. Eerder deden we dat in de 
 			functie <code>love.draw(dt)</code> met <code>speler.plaatje</code>. Die regel mag nu verwijderd 
 			worden en in plaats daarvan zetten we bij de variabelen 'speler' en 'vijanden' ook het plaatje voor de vijand:
-			</p><pre>
+			</p><code>
 	-- laad het plaatje van de vijand
 	vijandPlaatje = love.graphics.newImage('plaatjes/vijandsVliegtuig.png')
-			</pre><p>
+			</code><p>
 			De vijanden moeten ook getekend worden, zorg ervoor dat jouw <code>love.draw(dt)</code> functie eruit 
 			ziet zoals hieronder:
-			</p><pre>
+			</p><code>
 	function love.draw(dt)
 	
 	  -- teken het plaatje op het scherm
@@ -443,15 +443,15 @@
 	  tekenVijanden(vijanden)
 	
 	end
-			</pre><p>
+			</code><p>
 			Er worden alleen vijanden getekend die bestaan, daarom moeten vijanden ook aangemaakt worden:
-			</p><pre>
+			</p><code>
 	function love.update(dt)
 	
 	  maakNieuweVijand(vijanden)
-			</pre><p>
+			</code><p>
 			In de vorige stap hebben we de vijand laten bewegen. Deze code moeten we nu voor iedere vijand in de lijst uitvoeren:
-			</p><pre>
+			</p><code>
 	function love.update(dt)
 	
 	  maakNieuweVijand(vijanden) 
@@ -470,7 +470,7 @@
 	
 	    end
 	  end
-			</pre><p>
+			</code><p>
 			Het maken en verwijderen van vijanden zoals we dat hierboven doen is in Scratch heel lastig. 
 			We geven daarom geen voorbeeld van het bovenstaande in Scratch. Waar het kan doen we dat wel.
 			</p><p>
@@ -491,7 +491,7 @@
 			Voeg daarvoor de volgende code toe aan functie <code>love.update(dt)</code>:
 			</p>
 			<div class="gecentreerd"><img src="images/image2.png" /></div>
-			<pre>
+			<code>
 	-- als de speler een vijand geraakt heeft
 	if spelerHeeftVijandGeraakt() then
 	
@@ -499,11 +499,11 @@
 	  spelIsAfgelopen = true
 	
 	end
-			</pre><p>	
+			</code><p>	
 			In variabele <code>spelIsAfgelopen</code> wordt bijgehouden of het spel nog loopt of al is afgelopen. 
 			Als het is afgelopen, wordt de speler niet langer getekend. Pas daarvoor functie <code>love.draw(dt)</code>
 			aan door het tekenen van de speler binnen een if statement te plaatsen:
-			</p><pre>
+			</p><code>
 	function love.draw(dt)
 	
 	  -- als het spel nog niet is afgelopen
@@ -513,15 +513,15 @@
 	    love.graphics.draw(speler.plaatje, speler.x, speler.y)
 	
 	  end
-			</pre><p>
+			</code><p>
 			In Scratch zou het er zo uitzien:
 			</p>
 			<div class="gecentreerd"><img src="images/image11.png" /></div>
 			<p>
 			Vergeet niet om bovenaan het bestand de variabele toe te voegen:
-			</p><pre>
+			</p><code>
 	spelIsAfgelopen = false
-			</pre><p>
+			</code><p>
 			Als je nu het spel speelt, wordt het spelersvliegtuig niet meer getekend als je een vijand hebt geraakt.
 			</p>
 
@@ -533,7 +533,7 @@
 			De stap schieten lijkt op een combinatie van stappen 4 en 5..
 			</p><p>
 			Er moet een lijst worden toegevoegd voor de kogels:
-			</p><pre>
+			</p><code>
 	-- variabelen om eigenschappen van de speler in op te slaan
 	speler = { x = spelerX, y = spelerY, plaatje = nil }
 	
@@ -542,29 +542,29 @@
 	
 	-- lijst om kogels in op te slaan
 	kogels = {}
-			</pre><p>
+			</code><p>
 			Het plaatje van de kogel moet worden geladen:
-			</p><pre>
+			</p><code>
 	-- laad het plaatje van de vijand
 	vijandPlaatje = love.graphics.newImage('plaatjes/vijandsVliegtuig.png')
 	
 	-- laad het plaatje van de kogel
 	kogelPlaatje = love.graphics.newImage('plaatjes/kogel.png')
-			</pre><p>
+			</code><p>
 			En het plaatje moet worden getekend, dat doe je in de <code>love.draw(dt)</code> functie:
-			</p><pre>
+			</p><code>
 	-- teken de kogels in de lijst
 	tekenKogels(kogels)
-			</pre><p>
+			</code><p>
 			In tegenstelling tot de vijanden, worden nieuwe kogels alleen aangemaakt als de speler de 
 			spatiebalk indrukt. In de <code>love.update(dt)</code> functie voeg je het volgende toe:
-			</p><pre>
+			</p><code>
 	-- als de spatiebalk wordt ingedrukt
 	if love.keyboard.isDown('space') then
 	
 	  -- schiet dan
 	  maakNieuweKogel(kogels, speler)
-			</pre>
+			</code>
 			<p>
 			Als je de code tot nu toe uitprobeert, krijg je wel een kogels te zien, maar die bewegen niet, 
 			het ziet eruit als het plaatje rechts.
@@ -574,7 +574,7 @@
 			Aan de <code>love.update(dt)</code> functie moet nog wat extra code worden toegevoegd om de kogels 
 			te laten bewegen. Elke kogel in de lijst laten we telkens vier stappen omhoog gaan en als een kogel 
 			uit beeld verdwijnt, halen we de kogel ook uit de lijst:
-			</p><pre>
+			</p><code>
 	-- voor elke kogel in de lijst
 	for index, kogel in ipairs(kogels) do
 	
@@ -588,7 +588,7 @@
 	    table.remove(kogels, index)
 	  end
 	end
-			</pre><p>
+			</code><p>
 			Dat ziet er beter uit!
 			</p>
 			<div class="gecentreerd"><img src="images/image15.png" /></div>
@@ -603,7 +603,7 @@
 			</p><p>
 			Functie <code>kogelHeeftVijandGeraakt()</code> laat ons weten of een kogel een vijand geraakt 
 			heeft. Ook verwijderd deze functie de geraakte vijand en de kogel:
-			</p><pre>
+			</p><code>
 	-- als de kogel een vijand geraakt heeft
 	if kogelHeeftVijandGeraakt() then
 	
@@ -611,25 +611,25 @@
 	  score = score + 1
 	
 	end
-			</pre><p>
+			</code><p>
 			Voeg bovenstaande code toe aan <code>love.update(dt)</code>. Om de score in op te slaan, moet je ook nog 
 			een variabele aanmaken boven aan het bestand:
-			</p><pre>
+			</p><code>
 	score = 0
-			</pre><p>
+			</code><p>
 			In Scratch ziet het er zo uit:
 			</p>
 			<div class="gecentreerd"><img src="images/image20.png" /></div>
 			<p>
 			We willen natuurlijk de score kunnen zien, dus moeten we die in het scherm afdrukken. Voeg daarvoor in
 			<code>love.draw(dt)</code> het volgende toe:
-			</p><pre>
+			</p><code>
 	-- zet de tekstkleur op wit
 	love.graphics.setColor(255, 255, 255)
 	
 	-- en druk de score af
 	love.graphics.print("SCORE: " .. tostring(score), 400, 10)
-			</pre>
+			</code>
 
 			<div class="terug">
 				<a title="terug naar inhoud" href="#inhoud"><i class="material-icons">arrow_upward</i></a>
@@ -640,7 +640,7 @@
 			Daarvoor gaan we code toevoegen aan <code>love.update(dt)</code>:
 			</p>
 			<div class="gecentreerd"><img src="images/image10.png" /></div>
-			<pre>
+			<code>
   -- als de o van opnieuw wordt ingedrukt
   if love.keyboard.isDown('o') then
 
@@ -651,7 +651,7 @@
     spelIsAfgelopen = false
 
   end
-			</pre><p>
+			</code><p>
 			Als je op 'o' drukt begint je spel opnieuw. Het spel is nu klaar!
 			</p>
 
