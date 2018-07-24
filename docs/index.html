@@ -108,9 +108,13 @@
 			</div>
 			<h2>Stappen</h2>
 			<p>
-			<strong>LET OP</strong>: de regels in de voorbeeld code die beginnen met <code>--</code> worden niet uitgevoerd, 
+			<strong>LET OP</strong>: de regels in de voorbeeld code die beginnen met <code><span class="commentaar">--</span></code> 
+			en groen gekleurd zijn, worden niet uitgevoerd, 
 			maar zijn commentaar in de code. Het commentaar is bedoeld om aan te geven wat de code zou moeten doen. 
 			Je hoeft commentaar niet in te typen om het programma succesvol te kunnen laten uitvoeren.
+			</p><p>
+			De <code>donkerblauwe code</code> staat al in het bestand of heb je al eerder toegevoegd. De nieuwe code die je in een stap
+			moet toevoegen is <code><span class="nieuwe_code">rood</span></code> gekleurd. 
 			</p><p>
 			TIP: de onderstaande stukken code hoef je niet over te typen. Je kunt ze natuurlijk gewoon copy-pasten in je editor.
 			</p>
@@ -146,7 +150,7 @@
 			</p>
 	<code>
 <span class="commentaar">	-- variabele om het plaatje in op te slaan</span>
-	spelersVliegtuig = nil
+<span class="nieuwe_code">	spelersVliegtuig = nil</span>
 	
 	function love.load(arg)
 <span class="commentaar">	  -- laadt het plaatje in de variabele</span>
@@ -158,8 +162,8 @@
 			</p>
 	<code>
 	function love.draw(dt)
-	  -- teken het plaatje op het scherm
-	  love.graphics.draw(spelersVliegtuig, 100, 100)
+<span class="commentaar">	  -- teken het plaatje op het scherm</span>
+<span class="nieuwe_code">	  love.graphics.draw(spelersVliegtuig, 100, 100)</span>
 	end
 	</code>
 			<p>
@@ -196,12 +200,12 @@
 			meerdere eigenschappen opgeslagen kunnen worden:
 			</p>
 	<code>
-	-- variabele om eigenschappen van de speler in op te slaan
-	speler = { x = 200, y = 560, plaatje = nil }
+<span class="commentaar">	-- variabele om eigenschappen van de speler in op te slaan</span>
+<span class="nieuwe_code">	speler = { x = 200, y = 560, plaatje = nil }</span>
 	
 	function love.load(arg)
-	  -- laadt het plaatje in eigenschap plaatje van de variabele speler
-	  speler.plaatje = love.graphics.newImage('plaatjes/spelersVliegtuig.png')
+<span class="commentaar">	  -- laadt het plaatje in eigenschap plaatje van de variabele speler</span>
+<span class="nieuwe_code">	  speler.plaatje = love.graphics.newImage('plaatjes/spelersVliegtuig.png')</span>
 	end
 	</code>
 			<p>
@@ -209,8 +213,8 @@
 			</p>
 	<code>
 	function love.draw(dt)
-	  -- teken het plaatje op het scherm
-	  love.graphics.draw(speler.plaatje, speler.x, speler.y)
+<span class="commentaar">	  -- teken het plaatje op het scherm</span>
+<span class="nieuwe_code">	  love.graphics.draw(speler.plaatje, speler.x, speler.y)</span>
 	end
 	</code>
 			<p>
@@ -244,18 +248,18 @@
 			<div class="gecentreerd"><img src="images/image16.png" /></div>
 	<code>
 	function love.update(dt)
-	  -- als pijltje naar links wordt ingedrukt
-	  if love.keyboard.isDown('left') then
+<span class="commentaar">	  -- als pijltje naar links wordt ingedrukt</span>
+<span class="nieuwe_code">	  if love.keyboard.isDown('left') then</span>
 	
-	    -- dan doe een stap naar links
-	    speler.x = speler.x - 1
+<span class="commentaar">	    -- dan doe een stap naar links</span>
+<span class="nieuwe_code">	    speler.x = speler.x - 1</span>
 	
-	  -- als pijltje naar rechts wordt ingedrukt
-	  elseif love.keyboard.isDown('right') then
+<span class="commentaar">	  -- als pijltje naar rechts wordt ingedrukt</span>
+<span class="nieuwe_code">	  elseif love.keyboard.isDown('right') then</span>
 	
-	    -- dan doe een stap naar rechts
-	    speler.x = speler.x + 1
-	  end
+<span class="commentaar">	    -- dan doe een stap naar rechts</span>
+<span class="nieuwe_code">	    speler.x = speler.x + 1</span>
+<span class="nieuwe_code">	  end</span>
 	end
 	</code>
 			<p>
@@ -286,32 +290,32 @@
 			verder als <code>speler.x</code> gelijk is aan 0. In code ziet dat er als volgt uit:
 			</p>
 	<code>
-	-- als pijltje naar links ingedrukt
+<span class="commentaar">	-- als pijltje naar links ingedrukt</span>
 	if love.keyboard.isDown('left') then
 	
-	  -- en linker rand is nog niet bereikt
-	  if speler.x > 0 then
+<span class="commentaar">	  -- en linker rand is nog niet bereikt</span>
+<span class="nieuwe_code">	  if speler.x > 0 then</span>
 	
-	    -- dan doe een stap naar links
+<span class="commentaar">	    -- dan doe een stap naar links</span>
 	    speler.x = speler.x - 1
 	
-	  end
+<span class="nieuwe_code">	  end</span>
     </code><p>
 			Aan de rechter zijde is dat lastiger. Daar hangt de maximale 'x' af van de breedte van het 
 			venster. De maximale waarde voor x is gelijk aan de breedte van het venster, of <code>xRechterRand()</code>:
 			</p>
 			<div class="gecentreerd"><img src="images/image14.png" /></div>
 	<code>
-	-- als pijltje naar rechts ingedrukt
+<span class="commentaar">	-- als pijltje naar rechts ingedrukt</span>
 	elseif love.keyboard.isDown('right') then
 	
-	  -- en de rechter rand is nog niet bereikt
-	  if speler.x < xRechterRand() then
+<span class="commentaar">	  -- en de rechter rand is nog niet bereikt</span>
+<span class="nieuwe_code">	  if speler.x < xRechterRand() then</span>
 	
-	    -- dan doe een stap naar rechts
+<span class="commentaar">	    -- dan doe een stap naar rechts</span>
 	    speler.x = speler.x + 1
 	
-	  end
+<span class="nieuwe_code">	  end</span>
 	end
 	</code><p>
 			Pas de code die je eerder bij stap 3 (bewegen met pijltjes) hebt geschreven aan, zodat je stopt bij de 
@@ -331,22 +335,22 @@
 			(bijna bovenaan je code) en we voegen een regel code toe aan de <code>love.load()</code> en <code>love.draw()</code> functies:
 			</p>
 			<code>
-	-- variabelen om eigenschappen van de speler en vijand in op te slaan
+<span class="commentaar">	-- variabelen om eigenschappen van de speler en vijand in op te slaan</span>
 	speler = { x = 200, y = 560, plaatje = nil }
-	vijand = { x = 200, y = 0, plaatje = nil }
+<span class="nieuwe_code">	vijand = { x = 200, y = 0, plaatje = nil }</span>
 	
 	function love.load(arg)
 
-	  -- laadt het plaatje in eigenschap plaatje van de variabele speler
+<span class="commentaar">	  -- laadt het plaatje in eigenschap plaatje van de variabele speler</span>
 	  speler.plaatje = love.graphics.newImage('plaatjes/spelersVliegtuig.png')
-	  vijand.plaatje = love.graphics.newImage('plaatjes/vijandsVliegtuig.png')
+<span class="nieuwe_code">	  vijand.plaatje = love.graphics.newImage('plaatjes/vijandsVliegtuig.png')</span>
 	end
 	
 	function love.draw(dt)
 
-	  -- teken het plaatje op het scherm
+<span class="commentaar">	  -- teken het plaatje op het scherm</span>
 	  love.graphics.draw(speler.plaatje, speler.x, speler.y)
-	  love.graphics.draw(vijand.plaatje, vijand.x, vijand.y)
+<span class="nieuwe_code">	  love.graphics.draw(vijand.plaatje, vijand.x, vijand.y)</span>
 	end
 			</code><p>
 			Probeer bovenstaande code uit.
@@ -357,8 +361,8 @@
 			</p><code>
 	function love.update(dt)
 
-	  -- laat de vijand een stapje naar beneden doen 
-	  vijand.y = vijand.y + 1
+<span class="commentaar">	  -- laat de vijand een stapje naar beneden doen</span> 
+<span class="nieuwe_code">	  vijand.y = vijand.y + 1</span>
 			</code><p>
 			Bovenstaande code werkt hetzelfde als het verplaatsen van de speler. Nu bewegen we alleen wel 
 			verticaal (van boven naar beneden). Daardoor moeten we y in plaats van x veranderen. De positie 
@@ -367,19 +371,19 @@
 			Om het plaatje van buiten het venster tevoorschijn te laten komen, moet de y positie aangepast worden 
 			naar -100. Pas de code bovenin je script aan door y = 0 te veranderen naar y = -100:
 			</p><code>
-	vijand = { x = 200, y = -100, plaatje = nil }
+<span class="nieuwe_code">	vijand = { x = 200, y = -100, plaatje = nil }</span>
 			</code><p>
 			Onder aan het scherm vliegt de vijand het venster uit en is dan verdwenen. Het is natuurlijk leuker 
 			als er aan de bovenkant een nieuwe vijand verschijnt. Daarvoor moet je, net als bij het bewegend maken 
 			van de vijand, onderstaande code toevoegen aan <code>love.update(dt)</code>:
 			</p><code>
-	-- als de vijand de onderrand heeft bereikt
-	if vijand.y > yOnderRand() then
+<span class="commentaar">	-- als de vijand de onderrand heeft bereikt</span>
+<span class="nieuwe_code">	if vijand.y > yOnderRand() then</span>
 	
-	  -- verplaats het dan uit het zicht boven het venster
-	  vijand.y = -100
+<span class="commentaar">	  -- verplaats het dan uit het zicht boven het venster</span>
+<span class="nieuwe_code">	  vijand.y = -100</span>
 	
-	end
+<span class="nieuwe_code">	end</span>
 			</code><p>
 			Om je te helpen met het begrijpen van de code: het verplaatsen van de vijand in 
 			Scratch zou er ongeveer zo uitzien:
@@ -390,16 +394,16 @@
 			van boven naar beneden beweegt. De waarde van <code>vijand.x</code> (horizontale positie) zou iedere keer 
 			anders moeten zijn. Gebruik daarvoor de functie <code>xWillekeurig()</code>:
 			</p><code>
-	-- als de vijand de onderrand heeft bereikt
-	if vijand.y > yOnderRand() then
+<span class="commentaar">	-- als de vijand de onderrand heeft bereikt</span>
+<span class="nieuwe_code">	if vijand.y > yOnderRand() then</span>
 	
-	  -- verplaats het dan uit het zicht boven het venster
-	  vijand.y = -100
+<span class="commentaar">	  -- verplaats het dan uit het zicht boven het venster</span>
+<span class="nieuwe_code">	  vijand.y = -100</span>
 	
-	  -- en zet de horizontale positie naar een willekeurige waarde
-	  vijand.x = xWillekeurig()
+<span class="commentaar">	  -- en zet de horizontale positie naar een willekeurige waarde</span>
+<span class="nieuwe_code">	  vijand.x = xWillekeurig()</span>
 	
-	end
+<span class="nieuwe_code">	end</span>
 			</code><p>
 			Wat je in Scratch zo zou doen:
 			</p>
@@ -418,29 +422,29 @@
 			Allereerst hebben we een lijst met vijanden nodig, die voegen we bovenaan de code toe, bij 'speler'. 
 			Variabelen staan vaak bovenaan in code:
 			</p><code>
-	-- variabelen om eigenschappen van de speler in op te slaan
+<span class="commentaar">	-- variabelen om eigenschappen van de speler in op te slaan</span>
 	speler = { x = 200, y = 560, plaatje = nil }
 	
-	-- lijst om vijanden in op te slaan
-	vijanden = {}
+<span class="commentaar">	-- lijst om vijanden in op te slaan</span>
+<span class="nieuwe_code">	vijanden = {}</span>
 			</code><p>
 			Een andere variabele die we nodig hebben is het plaatje van de vijand. Eerder deden we dat in de 
 			functie <code>love.draw(dt)</code> met <code>speler.plaatje</code>. Die regel mag nu verwijderd 
 			worden en in plaats daarvan zetten we bij de variabelen 'speler' en 'vijanden' ook het plaatje voor de vijand:
 			</p><code>
-	-- laad het plaatje van de vijand
-	vijandPlaatje = love.graphics.newImage('plaatjes/vijandsVliegtuig.png')
+<span class="commentaar">	-- laad het plaatje van de vijand</span>
+<span class="nieuwe_code">	vijandPlaatje = love.graphics.newImage('plaatjes/vijandsVliegtuig.png')</span>
 			</code><p>
 			De vijanden moeten ook getekend worden, zorg ervoor dat jouw <code>love.draw(dt)</code> functie eruit 
 			ziet zoals hieronder:
 			</p><code>
 	function love.draw(dt)
 	
-	  -- teken het plaatje op het scherm
+<span class="commentaar">	  -- teken het plaatje op het scherm</span>
 	  love.graphics.draw(speler.plaatje, speler.x, speler.y)
 	
-	  -- teken de vijanden in de lijst
-	  tekenVijanden(vijanden)
+<span class="commentaar">	  -- teken de vijanden in de lijst</span>
+<span class="nieuwe_code">	  tekenVijanden(vijanden)</span>
 	
 	end
 			</code><p>
@@ -448,28 +452,28 @@
 			</p><code>
 	function love.update(dt)
 	
-	  maakNieuweVijand(vijanden)
+<span class="nieuwe_code">	  maakNieuweVijand(vijanden)</span>
 			</code><p>
 			In de vorige stap hebben we de vijand laten bewegen. Deze code moeten we nu voor iedere vijand in de lijst uitvoeren:
 			</p><code>
 	function love.update(dt)
 	
-	  maakNieuweVijand(vijanden) 
+<span class="nieuwe_code">	  maakNieuweVijand(vijanden) </span>
 	
-	  -- voor elke vijand in de lijst  
-	  for index, vijand in ipairs(vijanden) do
+<span class="commentaar">	  -- voor elke vijand in de lijst</span>  
+<span class="nieuwe_code">	  for index, vijand in ipairs(vijanden) do</span>
 	
-	    -- laat de vijand een stapje naar beneden doen  
-	    vijand.y = vijand.y + 2
+<span class="commentaar">	    -- laat de vijand een stapje naar beneden doen</span>  
+<span class="nieuwe_code">	    vijand.y = vijand.y + 2</span>
 	
-	    -- als de vijand de onderrand heeft bereikt
-	    if vijand.y > yOnderRand() then
+<span class="commentaar">	    -- als de vijand de onderrand heeft bereikt</span>
+<span class="nieuwe_code">	    if vijand.y > yOnderRand() then</span>
 	
-	      -- verwijder de vijand
-	      table.remove(vijanden, index)
+<span class="commentaar">	      -- verwijder de vijand</span>
+<span class="nieuwe_code">	      table.remove(vijanden, index)</span>
 	
-	    end
-	  end
+<span class="nieuwe_code">	    end</span>
+<span class="nieuwe_code">	  end</span>
 			</code><p>
 			Het maken en verwijderen van vijanden zoals we dat hierboven doen is in Scratch heel lastig. 
 			We geven daarom geen voorbeeld van het bovenstaande in Scratch. Waar het kan doen we dat wel.
@@ -492,13 +496,13 @@
 			</p>
 			<div class="gecentreerd"><img src="images/image2.png" /></div>
 			<code>
-	-- als de speler een vijand geraakt heeft
-	if spelerHeeftVijandGeraakt() then
+<span class="commentaar">	-- als de speler een vijand geraakt heeft</span>
+<span class="nieuwe_code">	if spelerHeeftVijandGeraakt() then</span>
 	
-	  -- is het spel afgelopen
-	  spelIsAfgelopen = true
+<span class="commentaar">	  -- is het spel afgelopen</span>
+<span class="nieuwe_code">	  spelIsAfgelopen = true</span>
 	
-	end
+<span class="nieuwe_code">	end</span>
 			</code><p>	
 			In variabele <code>spelIsAfgelopen</code> wordt bijgehouden of het spel nog loopt of al is afgelopen. 
 			Als het is afgelopen, wordt de speler niet langer getekend. Pas daarvoor functie <code>love.draw(dt)</code>
@@ -506,13 +510,13 @@
 			</p><code>
 	function love.draw(dt)
 	
-	  -- als het spel nog niet is afgelopen
-	  if spelIsAfgelopen == false then
+<span class="commentaar">	  -- als het spel nog niet is afgelopen</span>
+<span class="nieuwe_code">	  if spelIsAfgelopen == false then</span>
 	
-	    -- teken het plaatje op het scherm
+<span class="commentaar">	    -- teken het plaatje op het scherm</span>
 	    love.graphics.draw(speler.plaatje, speler.x, speler.y)
 	
-	  end
+<span class="nieuwe_code">	  end</span>
 			</code><p>
 			In Scratch zou het er zo uitzien:
 			</p>
@@ -520,7 +524,7 @@
 			<p>
 			Vergeet niet om bovenaan het bestand de variabele toe te voegen:
 			</p><code>
-	spelIsAfgelopen = false
+<span class="nieuwe_code">	spelIsAfgelopen = false</span>
 			</code><p>
 			Als je nu het spel speelt, wordt het spelersvliegtuig niet meer getekend als je een vijand hebt geraakt.
 			</p>
@@ -534,36 +538,42 @@
 			</p><p>
 			Er moet een lijst worden toegevoegd voor de kogels:
 			</p><code>
-	-- variabelen om eigenschappen van de speler in op te slaan
+<span class="commentaar">	-- variabelen om eigenschappen van de speler in op te slaan</span>
 	speler = { x = spelerX, y = spelerY, plaatje = nil }
 	
-	-- lijst om vijanden in op te slaan
+<span class="commentaar">	-- lijst om vijanden in op te slaan</span>
 	vijanden = {}
 	
-	-- lijst om kogels in op te slaan
-	kogels = {}
+<span class="commentaar">	-- lijst om kogels in op te slaan</span>
+<span class="nieuwe_code">	kogels = {}</span>
 			</code><p>
 			Het plaatje van de kogel moet worden geladen:
 			</p><code>
-	-- laad het plaatje van de vijand
+<span class="commentaar">	-- laad het plaatje van de vijand</span>
 	vijandPlaatje = love.graphics.newImage('plaatjes/vijandsVliegtuig.png')
 	
-	-- laad het plaatje van de kogel
-	kogelPlaatje = love.graphics.newImage('plaatjes/kogel.png')
+<span class="commentaar">	-- laad het plaatje van de kogel</span>
+<span class="nieuwe_code">	kogelPlaatje = love.graphics.newImage('plaatjes/kogel.png')</span>
 			</code><p>
 			En het plaatje moet worden getekend, dat doe je in de <code>love.draw(dt)</code> functie:
 			</p><code>
-	-- teken de kogels in de lijst
-	tekenKogels(kogels)
+<span class="commentaar">	-- teken de kogels in de lijst</span>
+<span class="nieuwe_code">	tekenKogels(kogels)</span>
 			</code><p>
 			In tegenstelling tot de vijanden, worden nieuwe kogels alleen aangemaakt als de speler de 
 			spatiebalk indrukt. In de <code>love.update(dt)</code> functie voeg je het volgende toe:
 			</p><code>
-	-- als de spatiebalk wordt ingedrukt
-	if love.keyboard.isDown('space') then
+    if spelIsAfgelopen == false then
+
+<span class="commentaar">	-- als de spatiebalk wordt ingedrukt</span>
+<span class="nieuwe_code">	if love.keyboard.isDown('space') then</span>
 	
-	  -- schiet dan
-	  maakNieuweKogel(kogels, speler)
+<span class="commentaar">	  -- schiet dan</span>
+<span class="nieuwe_code">	  maakNieuweKogel(kogels, speler)</span>
+
+<span class="nieuwe_code">	end</span>
+
+        maakNieuweVijand(vijanden)  
 			</code>
 			<p>
 			Als je de code tot nu toe uitprobeert, krijg je wel een kogels te zien, maar die bewegen niet, 
@@ -575,19 +585,27 @@
 			te laten bewegen. Elke kogel in de lijst laten we telkens vier stappen omhoog gaan en als een kogel 
 			uit beeld verdwijnt, halen we de kogel ook uit de lijst:
 			</p><code>
-	-- voor elke kogel in de lijst
-	for index, kogel in ipairs(kogels) do
-	
-	  -- beweeg de kogel vier stappen naar boven
-	  kogel.y = kogel.y - 4
-	
-	  -- als de kogel de bovenrand heeft bereikt
-	  if kogel.y < -20 then
-	
-	    -- verwijder de kogel uit de lijst
-	    table.remove(kogels, index)
-	  end
-	end
+    if spelIsAfgelopen == false then
+<span class="commentaar">        -- als de spatiebalk wordt ingedrukt</span>
+        if love.keyboard.isDown('space') then
+<span class="commentaar">            -- schiet dan</span>
+            maakNieuweKogel(kogels, speler)
+        end
+
+<span class="commentaar">        -- voor elke kogel in de lijst</span>
+<span class="nieuwe_code">        for index, kogel in ipairs(kogels) do</span>
+
+<span class="commentaar">            -- beweeg de kogel naar boven</span>
+<span class="nieuwe_code">            kogel.y = kogel.y - (2 * stapGrootte)</span>
+
+<span class="commentaar">            -- als de kogel de bovenrand heeft bereikt</span>
+<span class="nieuwe_code">            if kogel.y < -20 then</span>
+<span class="commentaar">                -- verwijder het uit de lijst</span>
+<span class="nieuwe_code">                table.remove(kogels, index)</span>
+<span class="nieuwe_code">            end</span>
+<span class="nieuwe_code">        end</span>
+
+        maakNieuweVijand(vijanden)  
 			</code><p>
 			Dat ziet er beter uit!
 			</p>
@@ -604,18 +622,18 @@
 			Functie <code>kogelHeeftVijandGeraakt()</code> laat ons weten of een kogel een vijand geraakt 
 			heeft. Ook verwijderd deze functie de geraakte vijand en de kogel:
 			</p><code>
-	-- als de kogel een vijand geraakt heeft
-	if kogelHeeftVijandGeraakt() then
+<span class="commentaar">	-- als de kogel een vijand geraakt heeft</span>
+<span class="nieuwe_code">	if kogelHeeftVijandGeraakt() then</span>
 	
-	  -- heb je een punt gescoord
-	  score = score + 1
+<span class="commentaar">	  -- heb je een punt gescoord</span>
+<span class="nieuwe_code">	  score = score + 1</span>
 	
-	end
+<span class="nieuwe_code">	end</span>
 			</code><p>
 			Voeg bovenstaande code toe aan <code>love.update(dt)</code>. Om de score in op te slaan, moet je ook nog 
 			een variabele aanmaken boven aan het bestand:
 			</p><code>
-	score = 0
+<span class="nieuwe_code">	score = 0</span>
 			</code><p>
 			In Scratch ziet het er zo uit:
 			</p>
@@ -624,11 +642,11 @@
 			We willen natuurlijk de score kunnen zien, dus moeten we die in het scherm afdrukken. Voeg daarvoor in
 			<code>love.draw(dt)</code> het volgende toe:
 			</p><code>
-	-- zet de tekstkleur op wit
-	love.graphics.setColor(255, 255, 255)
+<span class="commentaar">	-- zet de tekstkleur op wit</span>
+<span class="nieuwe_code">	love.graphics.setColor(255, 255, 255)</span>
 	
-	-- en druk de score af
-	love.graphics.print("SCORE: " .. tostring(score), 400, 10)
+<span class="commentaar">	-- en druk de score af</span>
+<span class="nieuwe_code">	love.graphics.print("SCORE: " .. tostring(score), 400, 10)</span>
 			</code>
 
 			<div class="terug">
@@ -641,16 +659,16 @@
 			</p>
 			<div class="gecentreerd"><img src="images/image10.png" /></div>
 			<code>
-  -- als de o van opnieuw wordt ingedrukt
-  if love.keyboard.isDown('o') then
+<span class="commentaar">  -- als de o van opnieuw wordt ingedrukt</span>
+<span class="nieuwe_code">  if love.keyboard.isDown('o') then</span>
 
-    -- wordt het spel opnieuw gestart
-    kogels = {}
-    vijanden = {}
-    score = 0
-    spelIsAfgelopen = false
+<span class="commentaar">    -- wordt het spel opnieuw gestart</span>
+<span class="nieuwe_code">    kogels = {}</span>
+<span class="nieuwe_code">    vijanden = {}</span>
+<span class="nieuwe_code">    score = 0</span>
+<span class="nieuwe_code">    spelIsAfgelopen = false</span>
 
-  end
+<span class="nieuwe_code">  end</span>
 			</code><p>
 			Als je op 'o' drukt begint je spel opnieuw. Het spel is nu klaar!
 			</p>
