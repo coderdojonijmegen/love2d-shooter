@@ -4,9 +4,10 @@ date: 2020-08-26T10:14:58+02:00
 draft: false
 toc: true
 headercolor: "teal-background"
+taal: Löve2D
 ---
 
-We gaan met 2D game framework Löve2D een shooter bouwen.
+We gaan met 2D game "framework" Löve2D een shooter bouwen.
 
 <!--more-->
 
