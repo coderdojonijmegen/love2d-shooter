@@ -194,6 +194,8 @@ In Scratch zou dit er ongeveer als volgt hebben uitgezien:
       als &lt;toets [pijltje rechts v] ingedrukt?&gt; dan
 	  verander x met (1)
       end
+	  end
+	  end
 {{< /scratch >}}
 
 Als je de code hebt ingevoerd (in Löve2D, niet in Scratch 😀), kun je het programma starten om uit te proberen of het werkt.
@@ -464,6 +466,7 @@ Voeg daarvoor de volgende code toe aan functie `love.update(dt)`:
 {{< scratch >}}
 	  als &lt;raak ik [Vijand v]?&gt; dan
 	  maak[spelIsAfgelopen v] (1)
+	  end
 {{< /scratch >}}
 
 {{< highlight lua >}}
