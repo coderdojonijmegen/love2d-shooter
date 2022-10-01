@@ -1,14 +1,14 @@
 require 'functies'
 
+-- de stapgrootte van de kogels
 stapGrootte = 2
-spelerY = 560
-spelerX = 200
-
+-- bepaalt of het spel afgelopen is
 spelIsAfgelopen = false
+-- de score van de speler
 score = 0
 
 -- variabelen om eigenschappen van de speler in op te slaan
-speler = { x = spelerX, y = spelerY, plaatje = nil }
+speler = { x = 200, y = 560, plaatje = nil }
 -- lijst om vijanden in op te slaan
 vijanden = {}
 -- lijst om kogels in op te slaan
@@ -46,77 +46,113 @@ end
 
 function love.update(dt)
 
+	-- als het spel niet is afgelopen, zorgen we dat het speelbaar is
+    if spelIsAfgelopen == false then
+		schietBijDrukOp('space')	
+		beweegKogels()
+        maakNieuweVijand(vijanden)  
+		beweegVijanden()
+		gameOverBijVijandAanraken()
+		puntenBijVijandRaken()
+		spelerBesturing()
+
+	-- als het spel wel is afgelopen, kijken we enkel of we opnieuw willen starten
+	else 
+		restartBijDrukOp('o')	
+	end
+end
+
+---------------------------------------------------------------------------
+-- Hier volgen alle functies die we in de functie love.update gebruiken. --
+---------------------------------------------------------------------------
+
+function restartBijDrukOp(toets)
+
     -- als de o van opnieuw wordt ingedrukt
-    if love.keyboard.isDown('o') then
+    if love.keyboard.isDown(toets) then
         -- wordt het spel opnieuw gestart
         kogels = {}
         vijanden = {}
         score = 0
         spelIsAfgelopen = false
     end
+end
 
-    if spelIsAfgelopen == false then
-        -- als de spatiebalk wordt ingedrukt
-        if love.keyboard.isDown('space') then
-            -- schiet dan
-            maakNieuweKogel(kogels, speler)
-        end
+function schietBijDrukOp(toets)
 
-        -- voor elke kogel in de lijst
-        for index, kogel in ipairs(kogels) do
+	-- als de spatiebalk wordt ingedrukt
+	if love.keyboard.isDown(toets) then
+		-- schiet dan
+		maakNieuweKogel(kogels, speler)
+	end
+end
 
-            -- beweeg de kogel naar boven
-            kogel.y = kogel.y - (2 * stapGrootte)
+function beweegKogels()
+	
+	-- voor elke kogel in de lijst
+	for index, kogel in ipairs(kogels) do
 
-            -- als de kogel de bovenrand heeft bereikt
-            if kogel.y < -20 then
-                -- verwijder het uit de lijst
-                table.remove(kogels, index)
-            end
-        end
+		-- beweeg de kogel naar boven
+		kogel.y = kogel.y - (2 * stapGrootte)
 
-        maakNieuweVijand(vijanden)  
+		-- als de kogel de bovenrand heeft bereikt
+		if kogel.y < -20 then
+			-- verwijder het uit de lijst
+			table.remove(kogels, index)
+		end
+	end
+end
 
-        -- voor elke vijand in de lijst  
-        for index, vijand in ipairs(vijanden) do
+function beweegVijanden()
 
-            -- laat de vijand een stapje naar beneden doen  
-            vijand.y = vijand.y + stapGrootte
+	-- voor elke vijand in de lijst  
+	for index, vijand in ipairs(vijanden) do
 
-            -- als de vijand de onderrand heeft bereikt
-            if vijand.y > yOnderRand() then
-                -- verwijder de vijand als ie buiten het venster is verdwenen
-                table.remove(vijanden, index)
-            end
-        end
+		-- laat de vijand een stapje naar beneden doen  
+		vijand.y = vijand.y + stapGrootte
 
-        -- als de speler een vijand geraakt heeft
-        if spelerHeeftVijandGeraakt() then
-            -- is het spel afgelopen
-            spelIsAfgelopen = true
-        end
+		-- als de vijand de onderrand heeft bereikt
+		if vijand.y > yOnderRand() then
+			-- verwijder de vijand als ie buiten het venster is verdwenen
+			table.remove(vijanden, index)
+		end
+	end
+end
 
-        -- als de kogel een vijand geraakt heeft
-        if kogelHeeftVijandGeraakt() then
-            -- heb je een punt gescoord
-            score = score + 1
-        end
+function gameOverBijVijandAanraken()
 
-        -- als pijltje naar links ingedrukt
-        if love.keyboard.isDown('left') then
-            -- en de linker rand is nog niet bereikt
-            if speler.x > 0 then
-                -- dan doe een stap naar links
-                speler.x = speler.x - stapGrootte
-            end
+		-- als de speler een vijand geraakt heeft
+	if spelerHeeftVijandGeraakt() then
+		-- is het spel afgelopen
+		spelIsAfgelopen = true
+	end
+end
 
-            -- als pijltje naar rechts ingedrukt
-        elseif love.keyboard.isDown('right') then
-            -- en de rechter rand is nog niet bereikt
-            if speler.x < xRechterRand() then
-                -- dan doe een stap naar rechts
-                speler.x = speler.x + stapGrootte
-            end
-        end
-    end
+function puntenBijVijandRaken()
+
+	-- als de kogel een vijand geraakt heeft
+	if kogelHeeftVijandGeraakt() then
+		-- heb je een punt gescoord
+		score = score + 1
+	end
+end
+
+function spelerBesturing()
+
+	-- als pijltje naar links ingedrukt
+	if love.keyboard.isDown('left') then
+		-- en de linker rand is nog niet bereikt
+		if speler.x > 0 then
+			-- dan doe een stap naar links
+			speler.x = speler.x - stapGrootte
+		end
+
+		-- als pijltje naar rechts ingedrukt
+	elseif love.keyboard.isDown('right') then
+		-- en de rechter rand is nog niet bereikt
+		if speler.x < xRechterRand() then
+			-- dan doe een stap naar rechts
+			speler.x = speler.x + stapGrootte
+		end
+	end
 end
