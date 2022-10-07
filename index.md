@@ -48,7 +48,7 @@ Als je twijfelt tussen de 32- of 64-bits versie, kun je voor de zekerheid kiezen
 [checken](https://support.microsoft.com/nl-nl/help/13443/windows-which-operating-system) welke versie je hebt.
 
 #### Mac
-[Download](https://love2d.org/%23download) het zip bestand voor Mac en unzip het op de gewenste locatie.
+[Download](https://love2d.org/#download) het zip bestand voor Mac en unzip het op de gewenste locatie.
 
 #### Linux
 Voor Ubuntu kun je kiezen voor het toevoegen van de [Löve PPA](https://launchpad.net/~bartbes/%2Barchive/ubuntu/love-stable)
@@ -56,7 +56,7 @@ Voor Ubuntu kun je kiezen voor het toevoegen van de [Löve PPA](https://launchpa
 
 #### Tekst editor
 Als je gaat programmeren is het handig om een editor te installeren met meer mogelijkheden dan 'kladblok'.
-[Sublime Text](https://www.sublimetext.com/3) snapt Lua en dus Löve. Als alternatief kun je kiezen voor 
+[Sublime Text](https://www.sublimetext.com/download) snapt Lua en dus Löve. Als alternatief kun je kiezen voor 
 [Notepad++](https://notepad-plus-plus.org/download/).
 
 ## Stappen
