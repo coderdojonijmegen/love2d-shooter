@@ -58,6 +58,7 @@ function love.update(dt)
 
       -- als het spel wel is afgelopen, kijken we enkel of we opnieuw willen starten
    else
+      -- de 'o' van opnieuw
       restartBijDrukOp('o')
    end
 end
@@ -68,7 +69,7 @@ end
 
 function restartBijDrukOp(toets)
 
-   -- als de o van opnieuw wordt ingedrukt
+   -- als toets wordt ingedrukt
    if love.keyboard.isDown(toets) then
       -- wordt het spel opnieuw gestart
       kogels = {}
@@ -80,7 +81,7 @@ end
 
 function schietBijDrukOp(toets)
 
-   -- als de spatiebalk wordt ingedrukt
+   -- als toets wordt ingedrukt
    if love.keyboard.isDown(toets) then
       -- schiet dan
       maakNieuweKogel(kogels, speler)
