@@ -191,9 +191,9 @@ In Scratch zou dit er ongeveer als volgt hebben uitgezien:
       herhaal
       als &lt;toets [pijltje links v] ingedrukt?&gt; dan
 	  verander x met (-1)
+	  end
       als &lt;toets [pijltje rechts v] ingedrukt?&gt; dan
 	  verander x met (1)
-      end
 	  end
 	  end
 {{< /scratch >}}
@@ -463,12 +463,6 @@ Voeg daarvoor de volgende code toe aan functie `love.update(dt)`:
 
 <!--![Scratch spel is afgelopen](images/image2.png)-->
 
-{{< scratch >}}
-	  als &lt;raak ik [Vijand v]?&gt; dan
-	  maak[spelIsAfgelopen v] (1)
-	  end
-{{< /scratch >}}
-
 {{< highlight lua >}}
 -- als de speler een vijand geraakt heeft
 if spelerHeeftVijandGeraakt() then
@@ -478,6 +472,15 @@ if spelerHeeftVijandGeraakt() then
 
 end
 {{< /highlight >}}
+
+In Scratch zou het er zo uitzien:
+
+{{< scratch >}}
+	  als &lt;raak ik [Vijand v]?&gt; dan
+	  maak[spelIsAfgelopen v] (1)
+	  end
+{{< /scratch >}}
+
 			
 In variabele `spelIsAfgelopen` wordt bijgehouden of het spel nog loopt of al is afgelopen. Als het is afgelopen, 
 wordt de speler niet langer getekend. Pas daarvoor de functie `love.draw(dt)` aan door het tekenen van de speler 
@@ -553,13 +556,13 @@ In de `love.update(dt)` functie voeg je het volgende toe:
 {{< highlight lua >}}
 if spelIsAfgelopen == false then
 
--- als de spatiebalk wordt ingedrukt
-if love.keyboard.isDown('space') then
+	-- als de spatiebalk wordt ingedrukt
+	if love.keyboard.isDown('space') then
 
-  -- schiet dan
-  maakNieuweKogel(kogels, speler)
+	  -- schiet dan
+	  maakNieuweKogel(kogels, speler)
 
-end
+	end
 
 	maakNieuweVijand(vijanden)  
 {{< /highlight >}}
@@ -658,11 +661,11 @@ Daarvoor gaan we code toevoegen aan `love.update(dt)`:
 -- als de o van opnieuw wordt ingedrukt
 if love.keyboard.isDown('o') then
 
--- wordt het spel opnieuw gestart
-kogels = {}
-vijanden = {}
-score = 0
-spelIsAfgelopen = false
+	-- wordt het spel opnieuw gestart
+	kogels = {}
+	vijanden = {}
+	score = 0
+	spelIsAfgelopen = false
 
 end
 {{< /highlight >}}
