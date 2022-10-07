@@ -51,8 +51,35 @@ Als je twijfelt tussen de 32- of 64-bits versie, kun je voor de zekerheid kiezen
 [Download](https://love2d.org/#download) het zip bestand voor Mac en unzip het op de gewenste locatie.
 
 #### Linux
-Voor Ubuntu kun je kiezen voor het toevoegen van de [Löve PPA](https://launchpad.net/~bartbes/%2Barchive/ubuntu/love-stable)
- of voor de installatie van één van de .deb bestanden.
+Voor Ubuntu kun je kiezen voor het toevoegen van de 
+[Löve PPA](https://launchpad.net/~bartbes/%2Barchive/ubuntu/love-stable)
+of voor de installatie van één van de .deb bestanden.  
+Onderstaand vind je de instructies voor het gebruiken van de AppImage:
+
+{{< voorbeeld kop="Instructies voor het gebruiken van de Löve AppImage" md=true >}}
+1. Download de [Löve `appimage x86_64`](https://love2d.org/#download). 
+Zet deze bijvoorbeeld in je `~/Documents` directory.  
+
+2. Voer hier vervolgens de volgende commands op uit (vanuit `~/Documents`). 
+Je `.AppImage` kan een andere versie/naam hebben dan in het voorbeeld!
+{{< highlight verbatim >}}
+chmod u+x love-11.4-x86_64.AppImage
+./love-11.4-x86_64.AppImage --appimage-extract
+{{< /highlight >}}
+
+3. Het resultaat is een directory `~/Documents/squashfs-root`. 
+Deze directory bevat het bestand `AppRun`, welke uitvoerbaar is.
+4. Zorg nu dat je weet waar je `.lua` bestanden staan (zie onderstaande stap 1). 
+In ons voorbeeld is dit in `~/Documents/love2d-shooter-master/src/`. 
+Je voert de code dan op de volgende manier uit:
+{{< highlight verbatim >}}
+~/Documents/squashfs-root/AppRun ~/Documents/love2d-shooter-master/src/
+{{< /highlight >}}
+
+Let op dat het scherm in eerste instantie zwart is, omdat we nog geen code geschreven hebben.  
+Mocht het niet lukken om de code op deze manier uit te voeren, vraag dan gerust om hulp!
+{{< /voorbeeld >}}
+
 
 #### Tekst editor
 Als je gaat programmeren is het handig om een editor te installeren met meer mogelijkheden dan 'kladblok'.
@@ -65,8 +92,8 @@ TIP: de onderstaande stukken code hoef je niet over te typen. Je kunt ze natuurl
 
 ### Stap 0: installatie voorbereidde code
 Download the code van GitHub: [Löve 2D shooter code](https://github.com/coderdojonijmegen/love2d-shooter/archive/master.zip)
-De zip-file bevat een `src/` folder. Kopieer de inhoud daarvan naar `c:\games\shooter`
-Om de voorbereidde code uit te voeren, druk je op de Windows knop en typ je 'cmd'. Je krijgt dan een zwart venster. 
+De zip-file bevat een `src/` folder. Kopieer de inhoud daarvan naar `c:\games\shooter`.
+Om de voorbereidde code uit te voeren, druk je op de Windows knop en typ je `cmd`. Je krijgt dan een zwart venster. 
 Typ dan cd `c:\games\shooter` om naar de folder te gaan waar je de code hebt neergezet. Typ tenslotte `c:\love\love.exe .\`
  om het programma te starten. Als alles goed gaat, krijg je een zwart venster.
 
