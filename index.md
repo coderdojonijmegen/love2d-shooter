@@ -12,7 +12,7 @@ We gaan met 2D game "framework" Löve2D een shooter bouwen.
 <!--more-->
 
 We gaan een eenvoudige shooter maken. 
-Deze instructie is een vertaling en bewerking van een [tutorial](http://osmstudios.com/tutorials/your-first-love2d-game-in-200-lines-part-1-of-3) gemaakt door >_OSMSTUDIOS.
+Deze instructie is een vertaling en bewerking van een tutorial door >_OSMSTUDIOS.
 
 ## Wat leer je?
 Tijdens de Dojo's over Scratch hebben jullie kennis gemaakt met variabelen en functies (blokken). Daar gaan we mee verder.
