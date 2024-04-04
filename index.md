@@ -58,22 +58,18 @@ Onderstaand vind je de instructies voor het gebruiken van de AppImage:
 
 {{< voorbeeld kop="Instructies voor het gebruiken van de Löve AppImage" md=true >}}
 1. Download de [Löve `appimage x86_64`](https://love2d.org/#download). 
-Zet deze bijvoorbeeld in je `~/Documents` directory.  
+Zet deze bijvoorbeeld in je `~/Downloads` directory.  
 
-2. Voer hier vervolgens de volgende commands op uit (vanuit `~/Documents`). 
+2. Voer hier vervolgens de volgende commands op uit (vanuit `~/Downloads`). 
 Je `.AppImage` kan een andere versie/naam hebben dan in het voorbeeld!
-{{< highlight verbatim >}}
+{{< highlight bash >}}
 chmod u+x love-11.4-x86_64.AppImage
-./love-11.4-x86_64.AppImage --appimage-extract
 {{< /highlight >}}
-
-3. Het resultaat is een directory `~/Documents/squashfs-root`. 
-Deze directory bevat het bestand `AppRun`, welke uitvoerbaar is.
-4. Zorg nu dat je weet waar je `.lua` bestanden staan (zie onderstaande stap 1). 
+3. Zorg nu dat je weet waar je `.lua` bestanden staan (zie onderstaande stap 1). 
 In ons voorbeeld is dit in `~/Documents/love2d-shooter-master/src/`. 
 Je voert de code dan op de volgende manier uit:
-{{< highlight verbatim >}}
-~/Documents/squashfs-root/AppRun ~/Documents/love2d-shooter-master/src/
+{{< highlight bash >}}
+~/Downloads/love-11.4-x86_64.AppImage ~/Documents/love2d-shooter-master/src/
 {{< /highlight >}}
 
 Let op dat het scherm in eerste instantie zwart is, omdat we nog geen code geschreven hebben.  
