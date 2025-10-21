@@ -32,55 +32,7 @@ Als je deze in de uitleg tegenkomt, hoef je ze dus niet zelf te implementeren!
 Om deze instructie te kunnen volgen, moet je Löve en een goede editor geïnstalleerd hebben. 
 Verder moet je wat code downloaden om verder op te bouwen, maar dit wordt in stap 0 uitgelegd.
 
-### Installatie Löve
-Hopelijk heb je de installatie al voorbereid na het ontvangen van de uitnodiging voor deze Dojo. Als dat zo is, kun je 
-dit hoofdstukje overslaan en doorgaan naar Stap 1.
-
-#### Windows
-Löve is op Windows gemakkelijk te installeren via één van de installers. Als alternatief kun je kiezen voor één van de 
-zipbestanden en deze op een gewenste locatie unzippen. Maak het jezelf gemakkelijk door Löve op een eenvoudig te 
-onthouden plek te installeren, bijvoorbeeld in de map
-
-    c:\love\
-
-Zie de [Löve download pagina](https://love2d.org/#download) voor de installatie bestanden.
-Als je twijfelt tussen de 32- of 64-bits versie, kun je voor de zekerheid kiezen voor 32-bits versie of gewoon even 
-[checken](https://support.microsoft.com/nl-nl/help/13443/windows-which-operating-system) welke versie je hebt.
-
-#### Mac
-[Download](https://love2d.org/#download) het zip bestand voor Mac en unzip het op de gewenste locatie.
-
-#### Linux
-Voor Ubuntu kun je kiezen voor het toevoegen van de 
-[Löve PPA](https://launchpad.net/~bartbes/%2Barchive/ubuntu/love-stable)
-of voor de installatie van één van de .deb bestanden.  
-Onderstaand vind je de instructies voor het gebruiken van de AppImage:
-
-{{< voorbeeld kop="Instructies voor het gebruiken van de Löve AppImage" md=true >}}
-1. Download de [Löve `appimage x86_64`](https://love2d.org/#download). 
-Zet deze bijvoorbeeld in je `~/Downloads` directory.  
-
-2. Voer hier vervolgens de volgende commands op uit (vanuit `~/Downloads`). 
-Je `.AppImage` kan een andere versie/naam hebben dan in het voorbeeld!
-{{< highlight bash >}}
-chmod u+x love-11.4-x86_64.AppImage
-{{< /highlight >}}
-3. Zorg nu dat je weet waar je `.lua` bestanden staan (zie onderstaande stap 1). 
-In ons voorbeeld is dit in `~/Documents/love2d-shooter-master/src/`. 
-Je voert de code dan op de volgende manier uit:
-{{< highlight bash >}}
-~/Downloads/love-11.4-x86_64.AppImage ~/Documents/love2d-shooter-master/src/
-{{< /highlight >}}
-
-Let op dat het scherm in eerste instantie zwart is, omdat we nog geen code geschreven hebben.  
-Mocht het niet lukken om de code op deze manier uit te voeren, vraag dan gerust om hulp!
-{{< /voorbeeld >}}
-
-
-#### Tekst editor
-Als je gaat programmeren is het handig om een editor te installeren met meer mogelijkheden dan 'kladblok'.
-[Sublime Text](https://www.sublimetext.com/download) snapt Lua en dus Löve. Als alternatief kun je kiezen voor 
-[Notepad++](https://notepad-plus-plus.org/download/).
+{{< include file="/installatie/love2d" >}}
 
 ## Stappen
 
